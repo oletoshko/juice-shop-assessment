@@ -13,7 +13,7 @@ export default defineConfig({
   },
   e2e: {
     baseUrl: 'http://localhost:3000',
-    specPattern: 'test/cypress/e2e/**.spec.ts',
+    specPattern: 'test/cypress/e2e/**.cy.ts',
     downloadsFolder: 'test/cypress/downloads',
     fixturesFolder: false,
     supportFile: 'test/cypress/support/e2e.ts',
