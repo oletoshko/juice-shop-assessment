@@ -6,7 +6,6 @@ import * as utils from './lib/utils'
 import { generateSync } from 'otplib'
 
 export default defineConfig({
-  projectId: '3hrkhu',
   defaultCommandTimeout: 10000,
   retries: {
     runMode: 2
