@@ -10,7 +10,7 @@ metadata:
 
 # Spec Spy
 
-**Use this skill when:** The user wants to understand the state of the test suite.
+**Use this skill when:** The user wants to understand the state and functionalities of the test suite.
 
 **Do NOT use this skill when:** The user wants to write, fix, or run tests — use `cypress-author` instead.
 
