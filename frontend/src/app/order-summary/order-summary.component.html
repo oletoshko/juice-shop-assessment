@@ -8,7 +8,7 @@
       @if (address && paymentMethod) {
         <div class="container">
           <!-- Delivery Address Card -->
-          <mat-card appearance="outlined" class="mat-elevation-z0 flex-60">
+          <mat-card appearance="outlined" class="mat-elevation-z0 flex-60" data-testid="delivery-address-card">
             <div class="mdc-card">
               <div><b>{{"LABEL_DELIVERY_ADDRESS" | translate}}</b></div>
               <div>{{address?.fullName}}</div>

@@ -55,7 +55,7 @@
     }
 
     <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: tableColumns;"></mat-row>
+    <mat-row *matRowDef="let row; columns: tableColumns;" data-testid="basket-item"></mat-row>
 
     @if (displayTotal) {
       <span>
