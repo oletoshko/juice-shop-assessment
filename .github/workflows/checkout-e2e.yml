@@ -43,8 +43,5 @@ jobs:
           start: npm start
           wait-on: http://localhost:3000
           spec: test/cypress/e2e/checkout.cy.ts
-          record: true
-          group: "checkout-e2e @ ubuntu"
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
