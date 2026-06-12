@@ -3,7 +3,6 @@ export interface User {
   readonly password: string
 }
 
-export const users: Record<'customer' | 'admin', User> = {
-  customer: { email: 'jim@juice-sh.op', password: 'ncc-1701' },
-  admin: { email: 'admin@juice-sh.op', password: 'admin123' }
+export const users: Record<'customer', User> = {
+  customer: { email: 'bender@juice-sh.op', password: 'OhG0dPlease1nsertLiquor!' }
 }

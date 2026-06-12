@@ -39,6 +39,22 @@ export function getDeliveryMethods (token: string): Cypress.Chainable<DeliveryMe
   })
 }
 
+export function deleteAddress (token: string, addressId: number): void {
+  cy.request({
+    method: 'DELETE',
+    url: `/api/Addresss/${addressId}`, // triple 's' matches the Juice Shop route (server.ts:450)
+    headers: authHeaders(token)
+  }).its('status').should('eq', 200)
+}
+
+export function deleteCard (token: string, cardId: number): void {
+  cy.request({
+    method: 'DELETE',
+    url: `/api/Cards/${cardId}`,
+    headers: authHeaders(token)
+  }).its('status').should('eq', 200)
+}
+
 export function checkout (token: string, basketId: number, payload: CheckoutPayload): Cypress.Chainable<OrderConfirmation> {
   return cy.request({
     method: 'POST',

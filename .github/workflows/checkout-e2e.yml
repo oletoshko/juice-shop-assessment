@@ -1,0 +1,50 @@
+name: "Checkout E2E Tests"
+
+on:
+  push:
+    paths:
+      - 'test/cypress/**'
+      - 'cypress.config.ts'
+      - 'routes/**'
+      - 'models/**'
+      - 'frontend/src/**'
+  pull_request:
+    paths:
+      - 'test/cypress/**'
+      - 'cypress.config.ts'
+      - 'routes/**'
+      - 'models/**'
+      - 'frontend/src/**'
+
+env:
+  NODE_DEFAULT_VERSION: 24
+  NODE_OPTIONS: "--max_old_space_size=4096"
+
+jobs:
+  checkout-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check out Git repository"
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+
+      - name: "Use Node.js ${{ env.NODE_DEFAULT_VERSION }}"
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af #v4.1.0
+        with:
+          node-version: ${{ env.NODE_DEFAULT_VERSION }}
+
+      - name: "Install application"
+        run: npm install
+
+      - name: "Run checkout E2E tests"
+        uses: cypress-io/github-action@57b70560982e6a11d23d4b8bec7f8a487cdbb71b #v6.7.8
+        with:
+          install: false
+          browser: chrome
+          start: npm start
+          wait-on: http://localhost:3000
+          spec: test/cypress/e2e/checkout.cy.ts
+          record: true
+          group: "checkout-e2e @ ubuntu"
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
